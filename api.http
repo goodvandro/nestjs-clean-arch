@@ -1,0 +1,26 @@
+GET http://localhost:3000/projects
+
+###
+GET http://localhost:3000/projects/fdc09539-788e-455c-ab33-56303abf13fb
+
+###
+# @name createProject
+POST http://localhost:3000/projects
+Content-Type: application/json
+
+{
+  "name": "Project",
+  "description": "Description"
+}
+
+###
+
+@project_id = {{createProject.response.body.id}}
+
+###
+POST http://localhost:3000/projects/{{project_id}}/start
+Content-Type: application/json
+
+{
+  "started_at": "2023-08-23"
+}
